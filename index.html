@@ -5,19 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Águia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding-top: 10px;
+            overflow-x: hidden;
+        }
+
+        .banner {
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            border: 3px solid #1E90FF;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            max-width: 90%;
+            border-radius: 10px;
+            border: 2px solid #1E90FF;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h2 a:hover {
+            color: #1E90FF;
+        }
+
+        .eagle {
+            position: absolute;
+            width: 80px;
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 600px) {
+            .info {
+                font-size: 0.9rem;
+            }
+
+            .eagle {
+                width: 60px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <img src="https://img.freepik.com/fotos-gratis/aguia-careca-majestosa-empoleirada-olhando-fixamente-com-olhos-afiados-gerados-por-ia_188544-35430.jpg"
         class="banner">
-    <!-- Banner Aguia  -->
 
     <div class="info">
-        <h2><a href="https://pt.wikipedia.org/wiki/%C3%81guia-de-cabe%C3%A7a-branca" target="_blank"> Águia-de-Cabeça-Branca </a></h2>
+        <h2><a href="https://pt.wikipedia.org/wiki/%C3%81guia-de-Cabe%C3%A7a-Branca" target="_blank">Águia-de-Cabeça-Branca</a></h2>
         <p>
             A <strong>Haliaeetus leucocephalus</strong> é uma águia nativa da América do Norte. Sua distribuição
-            geográfica
-            inclui a maioria do Canadá, todos os Estados Unidos (com maior presença no Alasca) e o norte do México.
+            geográfica inclui a maioria do Canadá, todos os Estados Unidos (com maior presença no Alasca) e o norte do México.
         </p>
         <p>
             Com uma visão aguçada e um voo majestoso, esta águia possui força e poder. Encontrada em
@@ -28,78 +92,21 @@
             em diversas culturas ao redor do mundo.
         </p>
     </div>
-    <!-- Descrição -->
 
     <img src="https://static.vecteezy.com/system/resources/thumbnails/018/248/996/small/american-bald-eagle-png.png"
         class="eagle" id="eagle">
-    <!-- Definimos o id="eagle" para requisitar o frame do documento HTML -->
-
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .banner {
-            width: auto;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
-            display: block;
-            margin: 20px auto;
-            border: 3px solid #1E90FF;
-            border-radius: 10px;
-            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
-
-        }
-
-
-        .info {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            text-align: center;
-            width: 50%;
-            border-radius: 10px;
-            margin-top: 10px;
-            z-index: 5;
-            border: 2px solid #1E90FF;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .eagle {
-            position: absolute;
-            width: 150px;
-            top: 50%;
-            left: -150px; /* Começa fora da tela*/
-            transform: translateY(-50%);
-        }
-        h2 a {
-            text-decoration: none; /* Remove o sublinhado */
-            color: inherit; /* Mantém a cor do título */
-        }
-            h2 a:hover {
-              color: #1E90FF; /* Muda a cor ao passar o mouse (opcional) */
-        }
-
-    </style>
 
     <script>
         const eagle = document.getElementById("eagle");
-        let positionX = -150; // -150 X para começar fora da tela
+        let positionX = -100; // -X para começar fora da tela
         let positionY = window.innerHeight / 2; // Altura /2 para iniciar com o Y ao meio da tela
         let directionY = 1; // direção onde um valor negativo é para cima e o positivo para baixo
 
         function fly() {
-            positionX += 4; // Move horizontalmente, como o valor é positivo se movera para a direita 
-            positionY += directionY * 1; // Move verticalmente conforme a informado
+            positionX += 2; // Move horizontalmente, como o valor é positivo se movera para a direita 
+            positionY += directionY * 0.8; // Move verticalmente conforme a informado
 
-            if (positionY <= 100 || positionY >= window.innerHeight - 100) {
+            if (positionY <= 80 || positionY >= window.innerHeight - 80) {
                 directionY *= -1;
             } // Verificação logica para inverter o eixo após ela atingir 100Px de cima ou de baixo
 
@@ -109,7 +116,7 @@
             if (positionX < window.innerWidth) {
                 requestAnimationFrame(fly); // Mantém a animação fora da tela
             } else {
-                positionX = -150;
+                positionX = -100;
                 requestAnimationFrame(fly); // Retorna o frame para fora da tela
             }
         }
