@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Águia</title>
+</head>
+
+<body>
+    <img src="https://img.freepik.com/fotos-gratis/aguia-careca-majestosa-empoleirada-olhando-fixamente-com-olhos-afiados-gerados-por-ia_188544-35430.jpg"
+        class="banner">
+    <!-- Banner Aguia  -->
+
+    <div class="info">
+        <h2>Águia de Cabeça Branca</h2>
+        <p>
+            A <strong>Haliaeetus leucocephalus</strong> é uma águia nativa da América do Norte. Sua distribuição
+            geográfica
+            inclui a maioria do Canadá, todos os Estados Unidos (com maior presença no Alasca) e o norte do México.
+        </p>
+        <p>
+            Com uma visão aguçada e um voo majestoso, esta águia simboliza força, liberdade e poder. Encontrada em
+            diversos habitats, ela é um predador de topo, capaz de caçar com precisão impressionante.
+        </p>
+        <p>
+            No simbolismo, a águia representa <strong>liderança, visão estratégica e renovação</strong>, sendo um ícone
+            em diversas culturas ao redor do mundo.
+        </p>
+    </div>
+    <!-- Descrição -->
+
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/018/248/996/small/american-bald-eagle-png.png"
+        class="eagle" id="eagle">
+    <!-- Definimos o id="eagle" para requisitar o frame do documento HTML -->
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .banner {
+            width: auto;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            display: block;
+            margin: 20px auto;
+            border: 3px solid #1E90FF;
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+
+        }
+
+
+        .info {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+            width: 50%;
+            border-radius: 10px;
+            margin-top: 10px;
+            z-index: 5;
+            border: 2px solid #1E90FF;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .eagle {
+            position: absolute;
+            width: 150px;
+            top: 50%;
+            left: -150px; /* Começa fora da tela*/
+            transform: translateY(-50%);
+        }
+    </style>
+
+    <script>
+        const eagle = document.getElementById("eagle");
+        let positionX = -150; // -150 X para começar fora da tela
+        let positionY = window.innerHeight / 2; // Altura /2 para iniciar com o Y ao meio da tela
+        let directionY = 1; // direção onde um valor negativo é para cima e o positivo para baixo
+
+        function fly() {
+            positionX += 4; // Move horizontalmente, como o valor é positivo se movera para a direita 
+            positionY += directionY * 1; // Move verticalmente conforme a informado
+
+            if (positionY <= 100 || positionY >= window.innerHeight - 100) {
+                directionY *= -1;
+            } // Verificação logica para inverter o eixo após ela atingir 100Px de cima ou de baixo
+
+            eagle.style.left = positionX + "px"; // realiza o movimento na tela
+            eagle.style.top = positionY + "px"; // realiza o movimento na tela
+
+            if (positionX < window.innerWidth) {
+                requestAnimationFrame(fly); // Mantém a animação fora da tela
+            } else {
+                positionX = -150;
+                requestAnimationFrame(fly); // Retorna o frame para fora da tela
+            }
+        }
+
+        fly();
+    </script>
+</body>
+
+</html>
