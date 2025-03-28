@@ -30,15 +30,6 @@ O JavaScript controla a animação da águia, que:
 - Move-se também no eixo vertical, alternando a direção ao atingir limites.
 - Quando atinge a extremidade direita, reinicia do lado esquerdo da tela.
 
-## Captura de Tela
 
-![Captura de Tela](https://img.freepik.com/fotos-gratis/aguia-careca-majestosa-empoleirada-olhando-fixamente-com-olhos-afiados-gerados-por-ia_188544-35430.jpg)
 
-## Contribuição
-
-Se quiser sugerir melhorias ou adicionar novas funcionalidades, fique à vontade para abrir um **Pull Request**.
-
-## Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
